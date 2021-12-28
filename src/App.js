@@ -12,7 +12,9 @@ function App() {
   const [sendPost, setSendPost] = useState({});
 
   useEffect(() => {
-    axios.get("http://localhost:7777/posts").then((data) => setDataGet(data));
+    axios
+      .get("http://localhost:7777/posts")
+      .then(({ data }) => setDataGet(data));
   }, []);
 
   const handleChange = ({ target: { value } }) => {
