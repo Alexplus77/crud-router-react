@@ -13,7 +13,7 @@ function App() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:7777/posts")
+      .get("http://localhost:8080/posts")
       .then(({ data }) => setDataGet(data));
   }, []);
 
@@ -23,11 +23,8 @@ function App() {
 
   const handleSendPost = (e) => {
     e.preventDefault();
-    axios.post("http://localhost:7777/posts", sendPost).then((data) => data);
-    console.log(sendPost);
+    axios.post("http://localhost:8080/posts", sendPost).then((data) => data);
   };
-
-  console.log(dataGet);
 
   return (
     <div className="App">
@@ -42,10 +39,7 @@ function App() {
             />
           }
         />
-        <Route
-          path="/posts/{postsId}"
-          element={<PostItem dataGet={dataGet} />}
-        />
+        <Route path="/posts/:id" element={<PostItem dataGet={dataGet} />} />
       </Routes>
     </div>
   );

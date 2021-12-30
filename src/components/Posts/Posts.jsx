@@ -1,13 +1,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { nanoid } from "nanoid";
 
 const Posts = ({ dataGet }) => {
   return (
-    <div>
+    <div className="container-posts">
       <Link to="/posts/new">Добавить пост</Link>
-      {dataGet?.map(({ content }) => (
-        <div key={nanoid()}>{content}</div>
+      {dataGet?.map(({ content, id }) => (
+        <Link to={`/posts/${id}`} key={id}>
+          {" "}
+          <div className="post-item">{content}</div>
+        </Link>
       ))}
     </div>
   );
