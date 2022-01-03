@@ -1,6 +1,6 @@
 body{
 
-  font-family: 'Lato', sans-serif;
+  font-family: 'Roboto Light', sans-serif;
   display: grid;
   justify-items: center;
 }
@@ -9,11 +9,27 @@ body{
 gap: 10px;
 }
 .post-item{
+  display: grid;
   border: black 1px solid;
 padding: 5px;
+
+}
+.post-list{
+  border: black 1px solid;
+  gap: 10px;
+  padding: 5px;
+  cursor: pointer;
 }
 .input-change-post{
   font-size: 18px;
   width: 200px;
  height: 200px;
+}
+.fa-times-circle-o{
+  cursor: pointer;
+  color: red;
+  justify-self: right;
+}
+button{
+  cursor: pointer;
 }
