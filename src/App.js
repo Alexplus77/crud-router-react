@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { Routes, Route, useNavigate } from "react-router-dom";
 import axios from "axios";
-import { Posts } from "./components/Posts";
-import { PostNewItem } from "./components/PostNewItem";
-import { PostItem } from "./components/PostItem";
+import { Posts } from "./pages/Posts";
+import { PostNewItem } from "./pages/PostNewItem";
+import { PostItem } from "./pages/PostItem";
 
 import "App.css";
-import PostChange from "./components/PostChange/PostChange";
+import PostChange from "./pages/PostChange";
 
 function App() {
   const [dataGet, setDataGet] = useState(null);
