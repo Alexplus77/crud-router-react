@@ -13,7 +13,6 @@ function App() {
   const [sendPost, setSendPost] = useState({});
   const [item, setItem] = useState(null);
   const navigate = useNavigate();
-  const [isRedirect, setIsRedirect] = useState(false);
 
   useEffect(() => {
     axios
@@ -54,7 +53,6 @@ function App() {
       .delete(`http://localhost:8080/posts?id=${id}`)
       .then(({ data }) => setDataGet(data))
       .catch((e) => console.log(e));
-    setIsRedirect(!isRedirect);
   };
 
   return (
