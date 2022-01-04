@@ -1,9 +1,10 @@
-import { Link, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useEffect } from "react";
 import axios from "axios";
 
 const PostChange = ({ item, setItem, handleChangePost, handleSave }) => {
   const { id } = useParams();
+  const navigate = useNavigate();
 
   useEffect(() => {
     axios
@@ -13,7 +14,12 @@ const PostChange = ({ item, setItem, handleChangePost, handleSave }) => {
   }, [id]);
 
   return (
-    <form onSubmit={(e) => handleSave(e, id)}>
+    <form className="form" onSubmit={(e) => handleSave(e, id)}>
+      <i
+        onClick={() => navigate("/")}
+        className="fa fa-times-circle-o"
+        aria-hidden="true"
+      />
       <label>
         Измените текст
         <textarea
@@ -21,8 +27,10 @@ const PostChange = ({ item, setItem, handleChangePost, handleSave }) => {
           onChange={(e) => handleChangePost(e)}
           value={item?.content}
         />
-        <button onSubmit={(e) => handleSave(e, id)}>Сохранить</button>
       </label>
+      <button className="button-submit" onSubmit={(e) => handleSave(e, id)}>
+        Сохранить
+      </button>
     </form>
   );
 };

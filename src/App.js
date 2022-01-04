@@ -48,6 +48,7 @@ function App() {
       .then()
       .catch((e) => console.log(e));
     navigate("/");
+    console.log(isRedirect);
     setIsRedirect(!isRedirect);
   };
 
@@ -56,7 +57,6 @@ function App() {
       .delete(`http://localhost:8080/posts?id=${id}`)
       .then()
       .catch((e) => console.log(e));
-    navigate("/");
     setIsRedirect(!isRedirect);
   };
 

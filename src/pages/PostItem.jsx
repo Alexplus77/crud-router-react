@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 
 const PostItem = ({ handleDelete }) => {
   const { id } = useParams();
   const navigate = useNavigate();
 
-  const [isChangePost, setIsChangePost] = useState(false);
   const [dataItem, setItem] = useState(null);
 
   useEffect(() => {
@@ -26,8 +25,14 @@ const PostItem = ({ handleDelete }) => {
           aria-hidden="true"
         />
         <p>{dataItem?.content}</p>
-        <button onClick={() => navigate(`/postChange/${id}`)}>Изменить</button>
-        <button onClick={() => handleDelete(id)}>Удалить</button>
+        <div className="button-group">
+          <Link className="link" to={`/postChange/${id}`}>
+            Изменить
+          </Link>
+          <Link className="link" to={"/"} onClick={() => handleDelete(id)}>
+            Удалить
+          </Link>
+        </div>
       </>
     </div>
   );

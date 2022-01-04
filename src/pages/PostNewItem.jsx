@@ -1,14 +1,26 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const PostNewItem = ({ handleSendPost, handleChange }) => {
+  const navigate = useNavigate();
   return (
     <div>
-      <form onSubmit={handleSendPost}>
+      <form onSubmit={handleSendPost} className="form">
+        <i
+          onClick={() => navigate("/")}
+          className="fa fa-times-circle-o"
+          aria-hidden="true"
+        />
         <label>
-          Новый пост
-          <input onChange={(e) => handleChange(e)} />
+          Добавьте новый пост
+          <textarea
+            className="input-change-post"
+            onChange={(e) => handleChange(e)}
+          />
         </label>
-        <button onSubmit={(e) => handleChange(e)}>Send</button>
+        <button className="button-send" onSubmit={(e) => handleChange(e)}>
+          Отправить
+        </button>
       </form>
     </div>
   );
