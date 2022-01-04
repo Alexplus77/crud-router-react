@@ -8,7 +8,7 @@ const Posts = ({ dataGet }) => {
   return (
     <div className="container-posts">
       <Link className="link" to="/posts/new">
-        Добавить пост
+        Создать пост
       </Link>
       {dataGet?.map(({ content, id }) => (
         <div onClick={() => handleClickPost(id)} key={id} className="post-list">
