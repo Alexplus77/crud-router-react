@@ -15,13 +15,11 @@ function App() {
   const navigate = useNavigate();
   const [isRedirect, setIsRedirect] = useState(false);
 
-  console.log(isRedirect);
-
   useEffect(() => {
     axios
       .get("http://localhost:8080/posts")
       .then(({ data }) => setDataGet(data));
-  }, [isRedirect]);
+  }, []);
 
   const handleChange = ({ target: { value } }) => {
     setSendPost({ ...sendPost, content: value });
@@ -29,9 +27,10 @@ function App() {
 
   const handleSendPost = (e) => {
     e.preventDefault();
-    axios.post("http://localhost:8080/posts", sendPost).then((data) => data);
+    axios
+      .post("http://localhost:8080/posts", sendPost)
+      .then(({ data }) => setDataGet(data));
     navigate("/");
-    setIsRedirect(!isRedirect);
   };
 
   const handleChangePost = (e) => {
@@ -45,16 +44,15 @@ function App() {
         id: `${id}`,
         content: `${item.content}`,
       })
-      .then(() => setIsRedirect(!isRedirect))
+      .then(({ data }) => setDataGet(data))
       .catch((e) => console.log(e));
     navigate("/", { replace: true });
-    console.log(isRedirect);
   };
 
   const handleDelete = (id) => {
     axios
       .delete(`http://localhost:8080/posts?id=${id}`)
-      .then()
+      .then(({ data }) => setDataGet(data))
       .catch((e) => console.log(e));
     setIsRedirect(!isRedirect);
   };

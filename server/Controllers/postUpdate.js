@@ -5,8 +5,8 @@ exports.postUpdate = (req, res) => {
     posts.db.map(
       (post) => req.body.id === post.id && (post.content = req.body.content)
     );
-    res.send({ status: "ok" });
-    res.status(200);
+
+    res.status(200).send(posts.db);
   } catch (e) {
     console.log(e);
   }
