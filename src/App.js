@@ -45,11 +45,10 @@ function App() {
         id: `${id}`,
         content: `${item.content}`,
       })
-      .then()
+      .then(() => setIsRedirect(!isRedirect))
       .catch((e) => console.log(e));
-    navigate("/");
+    navigate("/", { replace: true });
     console.log(isRedirect);
-    setIsRedirect(!isRedirect);
   };
 
   const handleDelete = (id) => {
