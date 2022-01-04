@@ -24,7 +24,7 @@ const PostItem = ({ handleDelete }) => {
           className="fa fa-times-circle-o"
           aria-hidden="true"
         />
-        <p>{dataItem?.content}</p>
+        <p className="text-item">{dataItem?.content}</p>
         <div className="button-group">
           <Link className="link" to={`/postChange/${id}`}>
             Изменить
