@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
+import "App.css";
 import { Routes, Route, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { Posts } from "./pages/Posts";
 import { PostNewItem } from "./pages/PostNewItem";
 import { PostItem } from "./pages/PostItem";
-import "App.css";
 import PostChange from "./pages/PostChange";
 
 function App() {
