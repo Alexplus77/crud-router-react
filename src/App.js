@@ -4,7 +4,6 @@ import axios from "axios";
 import { Posts } from "./pages/Posts";
 import { PostNewItem } from "./pages/PostNewItem";
 import { PostItem } from "./pages/PostItem";
-
 import "App.css";
 import PostChange from "./pages/PostChange";
 
