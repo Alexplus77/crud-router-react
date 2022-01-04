@@ -10,11 +10,21 @@ const Posts = ({ dataGet }) => {
       <Link className="link" to="/posts/new">
         Создать пост
       </Link>
-      {dataGet?.map(({ content, id }) => (
-        <div onClick={() => handleClickPost(id)} key={id} className="post-list">
-          {content}
-        </div>
-      ))}
+      {dataGet?.length ? (
+        dataGet?.map(({ content, id }) => (
+          <div
+            onClick={() => handleClickPost(id)}
+            key={id}
+            className="post-list"
+          >
+            {content}
+          </div>
+        ))
+      ) : (
+        <p style={{ color: "red" }}>
+          Нет ни одного поста, вы можете создать пост первым!!!
+        </p>
+      )}
     </div>
   );
 };
