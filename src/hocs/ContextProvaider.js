@@ -1,19 +1,18 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
+
+import { useFetchData } from "hooks/useFetchData";
+
 const ContextValue = React.createContext("");
 
 const ContextProvider = (props) => {
-  const [dataGet, setDataGet] = useState(null);
   const [sendPost, setSendPost] = useState({});
   const [item, setItem] = useState(null);
   const navigate = useNavigate();
 
-  useEffect(() => {
-    axios
-      .get("http://localhost:8080/posts")
-      .then(({ data }) => setDataGet(data));
-  }, []);
+  const [dataGet, sendData, error, loading] = useFetchData(
+    process.env.REACT_APP_URL
+  );
 
   const handleChange = ({ target: { value } }) => {
     setSendPost({ ...sendPost, content: value });
@@ -21,9 +20,7 @@ const ContextProvider = (props) => {
 
   const handleSendPost = (e) => {
     e.preventDefault();
-    axios
-      .post("http://localhost:8080/posts", sendPost)
-      .then(({ data }) => setDataGet(data));
+    sendData(process.env.REACT_APP_URL, "post", sendPost);
     navigate("/");
   };
 
@@ -33,26 +30,24 @@ const ContextProvider = (props) => {
 
   const handleSave = (e, id) => {
     e.preventDefault();
-    axios
-      .put(`http://localhost:8080/posts`, {
-        id: `${id}`,
-        content: `${item.content}`,
-      })
-      .then(({ data }) => setDataGet(data))
-      .catch((e) => console.log(e));
-    navigate("/", { replace: true });
+    sendData(process.env.REACT_APP_URL, "put", {
+      id: `${id}`,
+      content: `${item.content}`,
+    });
+    navigate("/");
   };
 
   const handleDelete = (id) => {
-    axios
-      .delete(`http://localhost:8080/posts?id=${id}`)
-      .then(({ data }) => setDataGet(data))
-      .catch((e) => console.log(e));
+    sendData(`${process.env.REACT_APP_URL}?id=${id}`, "delete");
+    navigate("/");
   };
+
   const value = {
     dataGet,
     setItem,
     item,
+    error,
+    loading,
     handleChange,
     handleChangePost,
     handleDelete,
