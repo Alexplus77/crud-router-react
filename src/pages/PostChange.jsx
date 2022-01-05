@@ -1,25 +1,15 @@
-import { useNavigate, useParams } from "react-router-dom";
-import { useEffect } from "react";
-import axios from "axios";
+import { Link, useParams } from "react-router-dom";
+import { useContext } from "react";
+import { ContextValue } from "hocs/ContextProvaider";
 
-const PostChange = ({ item, setItem, handleChangePost, handleSave }) => {
+const PostChange = () => {
+  const { item, handleChangePost, handleSave } = useContext(ContextValue);
   const { id } = useParams();
-  const navigate = useNavigate();
-
-  useEffect(() => {
-    axios
-      .get(`http://localhost:8080/posts?id=${id}`)
-      .then(({ data }) => setItem(data))
-      .catch((e) => console.log(e));
-  }, [id]);
-
   return (
     <form className="form" onSubmit={(e) => handleSave(e, id)}>
-      <i
-        onClick={() => navigate("/")}
-        className="fa fa-times-circle-o"
-        aria-hidden="true"
-      />
+      <Link to={"/"} className="fa fa-times-circle-o">
+        <i aria-hidden="true" />{" "}
+      </Link>
       <label>
         Измените текст
         <textarea
@@ -34,4 +24,4 @@ const PostChange = ({ item, setItem, handleChangePost, handleSave }) => {
     </form>
   );
 };
-export default PostChange;
+export { PostChange };

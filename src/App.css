@@ -68,6 +68,7 @@ label{
  height: 200px;
 }
 .fa-times-circle-o{
+  text-decoration: none;
   cursor: pointer;
   color: red;
   justify-self: right;

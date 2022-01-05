@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
+import { ContextValue } from "hocs/ContextProvaider";
 import { Link, useNavigate } from "react-router-dom";
 
-const Posts = ({ dataGet }) => {
+const Posts = () => {
+  const { dataGet } = useContext(ContextValue);
   const navigate = useNavigate();
   const handleClickPost = (id) => navigate(`/posts/${id}`);
 

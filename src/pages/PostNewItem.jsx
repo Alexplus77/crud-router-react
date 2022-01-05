@@ -1,16 +1,17 @@
-import React from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useContext } from "react";
+import { ContextValue } from "hocs/ContextProvaider";
+import { Link } from "react-router-dom";
 
-const PostNewItem = ({ handleSendPost, handleChange }) => {
-  const navigate = useNavigate();
+const PostNewItem = () => {
+  const { handleSendPost, handleChange } = useContext(ContextValue);
+
   return (
     <div>
       <form onSubmit={handleSendPost} className="form">
-        <i
-          onClick={() => navigate("/")}
-          className="fa fa-times-circle-o"
-          aria-hidden="true"
-        />
+        <Link to={"/"} className="fa fa-times-circle-o">
+          {" "}
+          <i aria-hidden="true" />{" "}
+        </Link>
         <label>
           Добавьте новый пост
           <textarea

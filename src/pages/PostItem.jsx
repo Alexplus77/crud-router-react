@@ -1,29 +1,21 @@
-import React, { useEffect, useState } from "react";
-import { Link, useNavigate, useParams } from "react-router-dom";
-import axios from "axios";
+import React, { useContext } from "react";
+import { Link, useParams } from "react-router-dom";
+import { useFetchItemId } from "hooks/useFetchItemId";
+import { ContextValue } from "hocs/ContextProvaider";
 
-const PostItem = ({ handleDelete }) => {
+const PostItem = () => {
+  const { handleDelete, setItem } = useContext(ContextValue);
   const { id } = useParams();
-  const navigate = useNavigate();
-
-  const [dataItem, setItem] = useState(null);
-
-  useEffect(() => {
-    axios
-      .get(`http://localhost:8080/posts?id=${id}`)
-      .then(({ data }) => setItem(data))
-      .catch((e) => console.log(e));
-  }, [id]);
+  const [dataItem] = useFetchItemId("http://localhost:8080/posts", id, setItem);
 
   return (
     <div className="post-item">
       <>
         {" "}
-        <i
-          onClick={() => navigate("/")}
-          className="fa fa-times-circle-o"
-          aria-hidden="true"
-        />
+        <Link to={"/"} className="fa fa-times-circle-o">
+          {" "}
+          <i aria-hidden="true" />{" "}
+        </Link>
         <p className="text-item">{dataItem?.content}</p>
         <div className="button-group">
           <Link className="link" to={`/postChange/${id}`}>
