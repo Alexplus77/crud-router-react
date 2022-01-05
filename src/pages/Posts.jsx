@@ -4,7 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { Errors } from "components/Errors";
 
 const Posts = () => {
-  const { dataGet, error } = useContext(ContextValue);
+  const { dataGet, error, loading } = useContext(ContextValue);
   const navigate = useNavigate();
   const handleClickPost = (id) => navigate(`/posts/${id}`);
 
@@ -17,7 +17,9 @@ const Posts = () => {
           <Link className="link" to="/posts/new">
             Создать пост
           </Link>
-          {dataGet?.length ? (
+          {loading ? (
+            <i>Loading...</i>
+          ) : dataGet?.length ? (
             dataGet?.map(({ content, id }) => (
               <div
                 onClick={() => handleClickPost(id)}
