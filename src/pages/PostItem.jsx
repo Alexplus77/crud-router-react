@@ -21,7 +21,9 @@ const PostItem = () => {
           <Link className="link" to={`/postChange/${id}`}>
             Изменить
           </Link>
-          <button onClick={() => handleDelete(id)}>Удалить</button>
+          <button className="btn-delete" onClick={() => handleDelete(id)}>
+            Удалить
+          </button>
         </div>
       </>
     </div>

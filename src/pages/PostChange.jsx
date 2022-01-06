@@ -18,9 +18,14 @@ const PostChange = () => {
           value={item?.content}
         />
       </label>
-      <button className="button-submit" onSubmit={(e) => handleSave(e, id)}>
-        Сохранить
-      </button>
+      <div className="button-group">
+        <Link className="link" to={`/posts/${id}`}>
+          Назад
+        </Link>
+        <button className="button-submit" onSubmit={(e) => handleSave(e, id)}>
+          Сохранить
+        </button>
+      </div>
     </form>
   );
 };

@@ -60,6 +60,10 @@ padding: 5px;
 .button-submit{
   justify-self: right;
 }
+.btn-delete:hover{
+  background-color: red;
+  color: white;
+}
 label{
   justify-items: center;
   display: grid;
