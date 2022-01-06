@@ -3,7 +3,16 @@ import { ContextValue } from "hocs/ContextProvaider";
 
 const Errors = () => {
   const { error } = useContext(ContextValue);
-  return <div className="error">Возникла ошибка:{error}</div>;
+
+  return (
+    <>
+      <div className="error">
+        <i>Возникла ошибка</i>
+        <p> {`${error}`}</p>
+      </div>
+      ;
+    </>
+  );
 };
 
 export { Errors };

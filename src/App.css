@@ -98,9 +98,13 @@ button:hover{
   color: black;
 }
 .error{
+  display: grid;
   width: 300px;
-  height: 300px;
+  height: 100px;
   border: 1px red solid;
   border-radius: 5px;
   color: red;
+  padding: 10px;
+  text-align: center;
+  align-items: center;
 }

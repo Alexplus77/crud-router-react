@@ -5,6 +5,7 @@ exports.postList = (req, res) => {
       ? res.send(posts.db.filter(({ id }) => req.query.id === id)[0])
       : res.send(posts.db);
   } catch (e) {
+    res.status(404).send({ error: e });
     console.log(e);
   }
 };
