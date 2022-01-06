@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/jwc/static/css/main.54618352.css",
-    "main.js": "/jwc/static/js/main.cd7b19fa.js",
-    "index.html": "/jwc/index.html",
-    "main.54618352.css.map": "/jwc/static/css/main.54618352.css.map",
-    "main.cd7b19fa.js.map": "/jwc/static/js/main.cd7b19fa.js.map"
+    "main.css": "/crud-router-react/static/css/main.54618352.css",
+    "main.js": "/crud-router-react/static/js/main.52cbff92.js",
+    "index.html": "/crud-router-react/index.html",
+    "main.54618352.css.map": "/crud-router-react/static/css/main.54618352.css.map",
+    "main.52cbff92.js.map": "/crud-router-react/static/js/main.52cbff92.js.map"
   },
   "entrypoints": [
     "static/css/main.54618352.css",
-    "static/js/main.cd7b19fa.js"
+    "static/js/main.52cbff92.js"
   ]
 }
