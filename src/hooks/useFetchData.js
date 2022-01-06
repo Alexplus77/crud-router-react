@@ -23,7 +23,6 @@ const useFetchData = (url) => {
       })
       .catch((e) => setError(e));
   };
-  console.log(dataGet);
   return [dataGet, sendData, error, loading];
 };
 
