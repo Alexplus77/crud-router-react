@@ -6,7 +6,7 @@ import { ContextValue } from "hocs/ContextProvaider";
 const PostItem = () => {
   const { handleDelete, setItem } = useContext(ContextValue);
   const { id } = useParams();
-  const [dataItem] = useFetchItemId("http://localhost:8080/posts", id, setItem);
+  const [dataItem] = useFetchItemId(process.env.REACT_APP_URL, id, setItem);
 
   return (
     <div className="post-item">
