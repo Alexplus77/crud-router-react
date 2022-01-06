@@ -8,7 +8,7 @@ const useFetchData = (url) => {
 
   useEffect(() => {
     sendData(url);
-  }, []);
+  }, [url]);
 
   const sendData = (url, method, data) => {
     setLoading(true);
