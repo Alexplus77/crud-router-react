@@ -1,4 +1,4 @@
-CRUD
+CRUD [Demo](https://alexplus77.github.io/crud-router-react/)
 ===
 Запуск сервера `npm run server`.
 
