@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/jwc/static/css/main.54618352.css",
+    "main.js": "/jwc/static/js/main.cd7b19fa.js",
+    "index.html": "/jwc/index.html",
+    "main.54618352.css.map": "/jwc/static/css/main.54618352.css.map",
+    "main.cd7b19fa.js.map": "/jwc/static/js/main.cd7b19fa.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.54618352.css",
+    "static/js/main.cd7b19fa.js"
+  ]
+}
