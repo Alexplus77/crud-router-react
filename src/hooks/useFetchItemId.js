@@ -16,6 +16,6 @@ const useFetchItemId = (url, id, setItem) => {
       })
       .catch((e) => setError(e));
   }, []);
-  return [dataItem, error, loading];
+  return { dataItem, error, loading };
 };
 export { useFetchItemId };
